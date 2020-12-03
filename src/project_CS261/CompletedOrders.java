@@ -1,0 +1,223 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project_CS261;
+
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author TEJENDRA
+ */
+public class CompletedOrders extends javax.swing.JFrame {
+
+    /**
+     * Creates new form listUI
+     */
+    public CompletedOrders() {
+        initComponents();
+        setExtendedState(CompletedOrders.MAXIMIZED_BOTH);
+        contentPanel2.setLayout(new BoxLayout(contentPanel2, BoxLayout.Y_AXIS));
+        Orders obj=new Orders();
+        obj.searchCompletedOrders(contentPanel2);
+    }
+
+//    public void searchOrders() {
+//        try {
+//            Connection con = DatabaseConnection.getConnection();
+//            Statement stmt = con.createStatement();
+//            ResultSet rs3 = stmt.executeQuery("SELECT COUNT(DISTINCT `1516289225`.`UserPreviousOrders`.`Id`) FROM `1516289225`.`UserPreviousOrders` where UserUsername =\"" + User.getNameOfUser() + "\";");
+//            int count = 0;
+//            while (rs3.next()) {
+//                count = rs3.getInt("COUNT(DISTINCT `1516289225`.`UserPreviousOrders`.`Id`)");
+//            }
+//            stmt.close();
+//          
+//            Statement stmt2 = con.createStatement();
+//            ResultSet rs = stmt2.executeQuery("SELECT *  \n"
+//                    + "FROM   `1516289225`.`UserPreviousOrders`\n"
+//                    + "WHERE  `1516289225`.`UserPreviousOrders`.`UserUsername` = '" + User.getNameOfUser() + "';");
+//
+//            int id;
+//            if (rs.next()) {
+//                id = rs.getInt("Id");
+//            }
+//            int TotalValue = 0;
+//            for (int i = 1; i <= count; i++) {
+//                TotalValue = 0;
+//                id = rs.getInt("Id");
+//                String query2 = "SELECT COUNT(`1516289225`.`UserPreviousOrders`.`Id`)\n"
+//                        + "FROM `1516289225`.`UserPreviousOrders`\n"
+//                        + "WHERE `1516289225`.`UserPreviousOrders`.`Id` = '" + id + "' and "+" `1516289225`.`UserPreviousOrders`.`UserUsername` = '" + User.getNameOfUser() + "';";
+//                Statement stmt3 = con.createStatement();
+//                ResultSet rs2 = stmt3.executeQuery(query2);
+//                int count2 = 0;
+//                while (rs2.next()) {
+//                    count2 = rs2.getInt("COUNT(`1516289225`.`UserPreviousOrders`.`Id`)");
+//                }
+//               Shop.products[] product = new Shop.products[count2];
+//                String productNames[] = new String[count2];
+//                int QuantityOrdered[] = new int[count2];
+//                String comments = rs.getString("Comments");
+//                String Address = rs.getString("Address");
+//                String State = rs.getString("State");
+//                String city = rs.getString("City");
+//                String seller[] = new String[count2];
+//                int PinCode = rs.getInt("Pincode");
+//                
+//                for (int j = 1; j <= count2; j++) {
+//                    String shopUsername = rs.getString("ShopUsername");
+//                    seller[j - 1] = shopUsername;
+//                    productNames[j - 1] = rs.getString("productname");
+//                    QuantityOrdered[j - 1] = rs.getInt("Quantity");
+//                    Shop shopobj = new Shop();
+//                    product[j - 1] = shopobj.new products(productNames[j - 1], shopUsername);
+////                            JOptionPane.showMessageDialog(this,"name "+userobj.getFirstName()+ " Username" + UserUsername + " Comments" + comments+" ProductName"+product[j-1].getName()+" Quantity "+QuantityOrdered[j-1]);
+//                    TotalValue += QuantityOrdered[j - 1] * product[j - 1].getRetailPrice();
+//                    rs.next();
+//                }
+//               contentPanel2.add(new PreviousOrdersPanel(id, seller, product, count2, QuantityOrdered, comments, TotalValue, Address, State, city, PinCode));
+//                contentPanel2.repaint();
+//                contentPanel2.revalidate();
+////                      
+////                JOptionPane.showMessageDialog(this, "Username" + UserUsername + "Username prev" + UserUsernameprev + " Comments" + comments+" ProductName"+productNames[0]+" Quantity "+QuantityOrdered[0]);
+//
+//            }
+//
+//        } catch (HeadlessException | SQLException ex) {
+//            Logger.getLogger(CompletedOrders.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        scroolpane = new javax.swing.JScrollPane();
+        contentPanel2 = new javax.swing.JPanel();
+        btnHome = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        scroolpane.setPreferredSize(new java.awt.Dimension(1550, 400));
+
+        contentPanel2.setPreferredSize(new java.awt.Dimension(1547, 400));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout contentPanel2Layout = new javax.swing.GroupLayout(contentPanel2);
+        contentPanel2.setLayout(contentPanel2Layout);
+        contentPanel2Layout.setHorizontalGroup(
+            contentPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentPanel2Layout.createSequentialGroup()
+                .addGap(441, 441, 441)
+                .addComponent(btnHome)
+                .addContainerGap(1045, Short.MAX_VALUE))
+        );
+        contentPanel2Layout.setVerticalGroup(
+            contentPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentPanel2Layout.createSequentialGroup()
+                .addComponent(btnHome)
+                .addGap(0, 683, Short.MAX_VALUE))
+        );
+
+        scroolpane.setViewportView(contentPanel2);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scroolpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scroolpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        setSize(new java.awt.Dimension(1566, 750));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new user_ui().setVisible(true);
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CompletedOrders.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CompletedOrders.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CompletedOrders.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CompletedOrders.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CompletedOrders().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHome;
+    private javax.swing.JPanel contentPanel2;
+    private javax.swing.JScrollPane scroolpane;
+    // End of variables declaration//GEN-END:variables
+}
